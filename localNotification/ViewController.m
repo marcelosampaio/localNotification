@@ -11,14 +11,13 @@
 @interface ViewController ()
 
 @property (nonatomic,strong) UILocalNotification *notification;
-@property int notificationAmount;
 
 @end
 
 @implementation ViewController
 
 @synthesize start;
-@synthesize notification,notificationAmount;
+@synthesize notification;
 
 - (void)viewDidLoad
 {
@@ -29,14 +28,13 @@
 
 - (IBAction)startNotification:(UIButton *)sender
 {
-    self.notificationAmount=self.notificationAmount+1;
     notification=[[UILocalNotification alloc]init];
     notification.fireDate=[NSDate dateWithTimeIntervalSinceNow:5];
-    notification.alertBody=@"This is my notification! :)";
+    notification.alertBody=@"Time to have a beer";
     notification.timeZone=[NSTimeZone defaultTimeZone];
     notification.soundName=UILocalNotificationDefaultSoundName;
-    notification.applicationIconBadgeNumber=notificationAmount;
-    notification.repeatInterval=NSMinuteCalendarUnit;
+    notification.applicationIconBadgeNumber=1;
+//    notification.repeatInterval=NSMinuteCalendarUnit;
     
     
     [[UIApplication sharedApplication]scheduleLocalNotification:notification];
@@ -47,7 +45,8 @@
 
 - (IBAction)stopNotification:(UIButton *)sender
 {
-    [[UIApplication sharedApplication]cancelLocalNotification:self.notification];
+//    [[UIApplication sharedApplication]cancelLocalNotification:self.notification];
+    [[UIApplication sharedApplication]cancelAllLocalNotifications];
 }
 
 
