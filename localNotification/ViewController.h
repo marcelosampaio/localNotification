@@ -10,4 +10,9 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIButton *start;
+
+@property (weak, nonatomic) IBOutlet UIButton *stop;
+
+
 @end
