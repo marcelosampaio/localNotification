@@ -10,25 +10,24 @@
 
 @interface ViewController ()
 
-@property (nonatomic,strong) UILocalNotification *notification;
+
 
 @end
 
 @implementation ViewController
 
 @synthesize start;
-@synthesize notification;
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
 }
 
 
 - (IBAction)startNotification:(UIButton *)sender
 {
-    notification=[[UILocalNotification alloc]init];
+    UILocalNotification *notification=[[UILocalNotification alloc]init];
     notification.fireDate=[NSDate dateWithTimeIntervalSinceNow:5];
     notification.alertBody=@"Time to have a beer";
     notification.timeZone=[NSTimeZone defaultTimeZone];
